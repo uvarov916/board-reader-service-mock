@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 import os
 
 app = Flask(__name__)
@@ -38,8 +38,9 @@ def get_next_state(cur_state):
 		return None
 
 
-@app.route('/get_state/<previous_state>')
+@app.route('/get_state/')
 def get_new_state(previous_state):
+	previous_state = request.args.get('previous_state') 
 	return jsonify({'newState': get_next_state(previous_state)})
 
 if __name__ == '__main__':
