@@ -40,7 +40,7 @@ def get_next_state(cur_state):
 
 @app.route('/get_state/<previous_state>')
 def get_new_state(previous_state):
-	return jsonify({'newState': get_new_state(previous_state)})
+	return jsonify({'newState': get_next_state(previous_state)})
 
 if __name__ == '__main__':
 	port = int(os.environ.get('PORT', 8000))
