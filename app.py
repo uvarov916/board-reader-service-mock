@@ -32,7 +32,7 @@ def get_next_state(cur_state):
 		if states[i] == cur_state:
 			cur_state_idx = i
 
-	if i != -1 and i < len(states):
+	if cur_state_idx != -1 and cur_state_idx < len(states):
 		return states[cur_state_idx + 1]
 	else:
 		return None
